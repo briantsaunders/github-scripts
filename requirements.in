@@ -1,0 +1,4 @@
+loguru
+PyGithub
+python-dotenv
+typer[all]

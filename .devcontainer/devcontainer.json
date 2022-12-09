@@ -1,0 +1,21 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ],
+    "settings": {
+        "python.formatting.provider": "black",
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.languageServer": "Pylance",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.formatting.blackPath": "/usr/local/bin/black",
+        "python.linting.flake8Path": "/usr/local/bin/flake8"
+    },
+	"postCreateCommand": "pip3 install -U pip && pip3 install pip-tools && pip3 install --user -r requirements-dev.txt"
+}
