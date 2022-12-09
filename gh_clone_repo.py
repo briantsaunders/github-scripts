@@ -56,13 +56,15 @@ def main(
     webhooks = repo.get_hooks()
     for webhook in webhooks:
         if webhook.config["url"] == webhook_url:
+            webhook.test()
             logger.info(
                 f"webhook {webhook_url} already exists in the repo {new_repo_name}"
             )
             sys.exit(1)
-    repo.create_hook(
+    webhook = repo.create_hook(
         "web", {"url": webhook_url, "content_type": "json"}, ["push"], active=True
     )
+    webhook.test()
 
 
 if __name__ == "__main__":
